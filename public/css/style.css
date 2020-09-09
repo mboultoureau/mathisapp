@@ -1,9 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+main {
+    padding: 20px 30px;
+}
+
+/* HEADER */
 header {
     display: flex;
     align-items: center;
@@ -31,6 +40,83 @@ header a {
     color: #fff;
 }
 
-main {
-    padding: 20px 30px;
+/* INPUT FIELD */
+.input-field {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-field input[type=text] {
+    padding: 15px;
+    width: 100%;
+    font-size: 1em;
+    outline: none;
+    border: 1px solid #3498db;
+    border-radius: 0.5em;
+    transition: border 0.2s;
+}
+
+.input-field label {
+    position: absolute;
+    top: -9px;
+    left: 7px;
+    font-size: 1em;
+    padding: 2px;
+    border-radius: 0.5em;
+    transition: font-size 0.2s, top 0.2s, left 0.2s;
+    background: #fff;
+    color: #333;
+}
+
+.input-field input:focus {
+    border: 3px solid #3498db;
+    box-shadow: 2px 2px 5px #aaa;
+}
+
+input[type=submit] {
+    background: #3498db;
+    border: none;
+    width: 100%;
+    color: #fff;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #aaa;
+}
+
+/* PRODUITS */
+.produits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.produits article {
+    box-shadow: 2px 2px 5px #aaa;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 1em;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.produits article:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 2px 5px #777;
+}
+
+.produits article a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+
+.produits article p {
+    margin: 30px 10px 10px 10px;
+}
+
+.produits article img {
+    display: block;
+    width: 150px;
+    height: 150px;
 }

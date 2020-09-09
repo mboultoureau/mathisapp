@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+
+<h1>Nos produits</h1>
+<section class="produits">
+
+    {% for categorie in categories %}
+    <article>
+        <a href="{{ categorie.slug }}">
+            <img src="{{ asset( 'img/' ~ categorie.image) }}" alt="{{ categorie.nom }}" />
+            <p>{{ categorie.nom }}</p>
+        </a>
+    </article>
+    {% endfor %}
+
+</section>
+
+{% endblock %}

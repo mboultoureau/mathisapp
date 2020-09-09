@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+
+    <h1>{{ editMode ? 'Édition d\'une catégorie' : 'Création d\'une catégorie' }}</h1>
+
+    {{ form_start(formCategorie) }}
+
+        <div class="input-field">
+            {{ form_row(formCategorie.nom, {
+                'attr': {'placeholder': 'Nom de la catégorie'}
+            }) }}
+        </div>
+
+        <div class="input-field">
+            {{ form_row(formCategorie.image, {
+                'attr': {'placeholder': 'Nom et extension du fichier de l\'image'},
+                'label': 'Nom de l\'image'
+            }) }}
+        </div>
+
+        <div class="input-field">
+            {{ form_row(formCategorie.slug, {
+                'attr': {'placeholder': 'URL de la catégorie'},
+                'label': 'URL'
+            }) }}
+        </div>
+
+        <input type="submit" value="{{ editMode ? 'Éditer la catégorie' : 'Créer la catégorie' }}">
+
+    {{ form_end(formCategorie) }}
+
+{% endblock %}

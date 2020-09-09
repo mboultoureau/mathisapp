@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ProduitRepository;
+use App\Repository\CategorieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProduitRepository::class)
+ * @ORM\Entity(repositoryClass=CategorieRepository::class)
  */
-class Produit
+class Categorie
 {
     /**
      * @ORM\Id
@@ -23,14 +23,9 @@ class Produit
     private $nom;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $description;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $prix;
+    private $image;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -54,26 +49,14 @@ class Produit
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getImage(): ?string
     {
-        return $this->description;
+        return $this->image;
     }
 
-    public function setDescription(?string $description): self
+    public function setImage(string $image): self
     {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getPrix(): ?float
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(float $prix): self
-    {
-        $this->prix = $prix;
+        $this->image = $image;
 
         return $this;
     }

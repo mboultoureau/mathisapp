@@ -13,29 +13,10 @@ class ProduitController extends AbstractController
 {
 
     /**
-     * @var ProduitRepository
-     */
-    private $repository;
-
-    /**
-     * @var ObjectManager
-     */
-    private $em;
-
-    public function __construct(ProduitRepository $repository, ObjectManager $em)
-    {
-        $this->repository = $repository;
-        $this->em = $em;
-    }
-
-    /**
-     * @Route("/produits", name="produit.index")
+     * @Route("/produits/a", name="produit.index")
      */
     public function index(): Response
     {
-
-        $this->repository->find(1);
-
         return $this->render('produit/index.html.twig', [
             'controller_name' => 'ProduitController',
         ]);
