@@ -10,6 +10,8 @@ html, body {
 
 main {
     padding: 20px 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* HEADER */
@@ -38,6 +40,17 @@ header li {
 header a {
     text-decoration: none;
     color: #fff;
+}
+
+/* FIL D'ARIANE */
+.fil-ariane {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.fil-ariane a {
+    color: #777;
+    text-decoration: none;
 }
 
 /* INPUT FIELD */

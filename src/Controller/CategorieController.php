@@ -10,20 +10,38 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Categorie;
 use App\Form\CategorieType;
+use App\Repository\CategorieRepository;
+use App\Repository\ProduitRepository;
+
 
 class CategorieController extends AbstractController
 {
     /**
      * @Route("/produits", name="categorie.index")
      */
-    public function index()
+    public function index(CategorieRepository $categorieRepository)
     {
-        $repo = $this->getDoctrine()->getRepository(Categorie::class);
-        $categories = $repo->findAll();
+        $categories = $categorieRepository->findAll();
 
         return $this->render('categorie/index.html.twig', [
             'controller_name' => 'CategorieController',
             'categories' => $categories
+        ]);
+    }
+
+    /**
+     * @Route("/produits/{slug}", name="categorie.view")
+     */
+    public function view(Categorie $categorie, ProduitRepository $produitRepository)
+    {
+        $produits = $produitRepository->findBy([
+            'categorie' => $categorie
+        ]);
+
+        return $this->render('categorie/view.html.twig', [
+            'controller_name' => 'CategorieController',
+            'categorie' => $categorie,
+            'produits' => $produits
         ]);
     }
 

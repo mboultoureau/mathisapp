@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos produits{% endblock %}
+{% block title %}{{ editMode ? 'Édition d\'une catégorie' : 'Création d\'une catégorie' }}{% endblock %}
 
 {% block body %}
 
