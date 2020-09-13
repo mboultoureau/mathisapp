@@ -3,8 +3,6 @@
 {% block title %}{{ produit.nom }}{% endblock %}
 
 {% block body %}
-
-
     <nav class="fil-ariane">
         <a href="{{ path('home') }}">TakeFood</a> >
         <a href="{{ path('categorie.index') }}">Nos produits</a> > 
@@ -13,7 +11,7 @@
     </nav>
 
     <h1>{{ produit.nom }}</h1>
-    <hr />
+    <hr>
     
     <article>
         <img src="{{ asset( 'img/' ~ produit.image) }}" alt="{{ produit.nom }}" />
@@ -21,6 +19,4 @@
         <p>{{ produit.description }}</p>
 
     </article>
-
-
 {% endblock %}

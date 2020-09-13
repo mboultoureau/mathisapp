@@ -8,12 +8,23 @@
     </head>
     <body>
         <header>
-            <p><a href="{{ path('home') }}">TakeFood<a/></p>
+            <p><a href="{{ path('home') }}">TakeFood</a></p>
             <nav>
                 <ul>
                     <li><a href={{ path("home") }}>Accueil</a></li>
                     <li><a href={{ path("categorie.index") }}>Nos produits</a></li>
                 </ul>
+
+                {% if not app.user %}
+                <ul class="nav-user">
+                    <li><a href={{ path("securite.inscription") }}>Inscription</a></li>
+                    <li><a href={{ path("securite.connexion") }}>Connexion</a></li>
+                </ul>
+                {% else %}
+                <ul class="nav-user">
+                    <li><a href={{ path("securite.deconnexion") }}>Déconnexion</a></li>
+                </ul>
+                {% endif %}
             </nav>
         </header>
         <main>
