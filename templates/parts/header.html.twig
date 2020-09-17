@@ -1,42 +1,22 @@
 <header>
-            <p></p>
-            <nav>
-                <ul>
-                    <li><a href={{ path("home") }}>Accueil</a></li>
-                    <li><a href={{ path("category.index") }}>Nos produits</a></li>
-                </ul>
-
-                {% if not app.user %}
-                <ul class="nav-user">
-                    <li><a href={{ path("security.register") }}>Inscription</a></li>
-                    <li><a href={{ path("security.login") }}>Connexion</a></li>
-                </ul>
-                {% else %}
-                <ul class="nav-user">
-                    <li><a href={{ path("security.logout") }}>Déconnexion</a></li>
-                </ul>
-                {% endif %}
-            </nav>
-        </header>
-
-{# <header>
-    <div>
-        <a href="{{ path('home') }}">
-            <p>TakeFood</p>
-            <i class="icon-logo"></i>
-        </a>
+    <div class="left">
+        <div>
+            <a href="{{ path('home') }}">
+                <i class="icon-logo"></i> TakeFood
+            </a>
+        </div>
+        <label for="menu-header"><i class="icon-menu"></i></label>
+        <input id="menu-header" type="checkbox" />
+        <nav>
+            <a href="{{ path("home") }}">Accueil</a>
+            <a href="{{ path("category.index") }}">Nos produits</a>
+            <a href="#">À propos de nous</a>
+        </nav>
     </div>
-    <nav>
-        <a href="{{ path("home") }}">Accueil</a>
-        <a href="{{ path("category.index") }}">Nos produits</a>
-        <a href="#">À propos de nous</a>
-    </nav>
-    <div>
-        <input type="search" placeholder="Rechercher un produit" />
+    <div class="right">
+        <div>
+            <a href="#profil" aria-label="Profil"><i class="icon-user"></i></a>
+            <a href="#panier" aria-label="Panier"><i class="icon-shop"></i></a>
+        </div>
     </div>
-    <div>
-        <a href="#profil"><i class="icon-user"></i> Profil</a>
-        <a href="#panier"><i class="icon-shop"></i> Panier</a>
-
-    </div>
-</header> #}
+</header>

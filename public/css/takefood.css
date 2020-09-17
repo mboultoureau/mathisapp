@@ -1,15 +1,24 @@
 @font-face {
   font-family: "takefood";
-  src: url("../fonts/takefood/takefood.eot?70288092");
-  src: url("../fonts/takefood/takefood.eot?70288092#iefix")
-      format("embedded-opentype"),
-    url("../fonts/takefood/takefood.woff2?70288092") format("woff2"),
-    url("../fonts/takefood/takefood.woff?70288092") format("woff"),
-    url("../fonts/takefood/takefood.ttf?70288092") format("truetype"),
-    url("../fonts/takefood/takefood.svg?70288092#takefood") format("svg");
+  src: url("../font/takefood.eot?15107143");
+  src: url("../font/takefood.eot?15107143#iefix") format("embedded-opentype"),
+    url("../font/takefood.woff2?15107143") format("woff2"),
+    url("../font/takefood.woff?15107143") format("woff"),
+    url("../font/takefood.ttf?15107143") format("truetype"),
+    url("../font/takefood.svg?15107143#takefood") format("svg");
   font-weight: normal;
   font-style: normal;
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'takefood';
+    src: url('../font/takefood.svg?15107143#takefood') format('svg');
+  }
+}
+*/
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
@@ -53,6 +62,9 @@
 .icon-logo:before {
   content: "\e801";
 } /* '' */
+.icon-search:before {
+  content: "\e802";
+} /* '' */
 .icon-shop:before {
   content: "\e835";
 } /* '' */

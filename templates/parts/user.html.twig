@@ -1,0 +1,15 @@
+{# <div class="user-profile">
+    {% if not app.user %}
+    <ul class="nav-user">
+        <li><a href={{ path("security.register") }}>Inscription</a></li>
+        <li><a href={{ path("security.login") }}>Connexion</a></li>
+    </ul>
+    {% else %}
+    <ul class="nav-user">
+        <p>{{ app.user.username }}</a>
+        <p>{{ app.user.email }}</a>
+
+        <li><a href={{ path("security.logout") }}>Déconnexion</a></li>
+    </ul>
+    {% endif %}
+</div> #}
