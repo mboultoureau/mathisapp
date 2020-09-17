@@ -4,29 +4,11 @@
         <meta charset="UTF-8">
         <title>{% block title %}TakeFood{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+        <link rel="stylesheet" href="{{ asset("css/takefood.css") }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <header>
-            <p><a href="{{ path('home') }}">TakeFood</a></p>
-            <nav>
-                <ul>
-                    <li><a href={{ path("home") }}>Accueil</a></li>
-                    <li><a href={{ path("categorie.index") }}>Nos produits</a></li>
-                </ul>
-
-                {% if not app.user %}
-                <ul class="nav-user">
-                    <li><a href={{ path("securite.inscription") }}>Inscription</a></li>
-                    <li><a href={{ path("securite.connexion") }}>Connexion</a></li>
-                </ul>
-                {% else %}
-                <ul class="nav-user">
-                    <li><a href={{ path("securite.deconnexion") }}>Déconnexion</a></li>
-                </ul>
-                {% endif %}
-            </nav>
-        </header>
+        {% include 'parts/header.html.twig' %}
         <main>
             {% block body %}{% endblock %}
         </main>

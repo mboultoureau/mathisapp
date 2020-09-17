@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos {{ category.name | lower }}{% endblock %}
+
+{% block body %}
+
+    <nav class="fil-ariane">
+        <a href="{{ path('home') }}">TakeFood</a> >
+        <a href="{{ path('category.index') }}">Nos produits</a> > 
+        <a href="{{ path('category.view', {'slug': category.slug}) }}">Nos {{ category.name | lower }}</a>
+    </nav>
+
+    <h1>Nos {{ category.name | lower }}</h1>
+    <hr>
+
+    <section class="produits">
+
+        {% if products is empty %}
+            <p>Nous n'avons encore aucun produit pour cette catégorie pour le moment, repassez plus tard</p>
+        {% endif %}
+
+        {% for product in products %}
+        <article>
+            <a href="{{ path('product.view', {'categorySlug': category.slug, 'productSlug': product.slug }) }}">
+                <img src="{{ asset( 'img/' ~ product.image) }}" alt="{{ product.name }}" />
+                <p>{{ product.name }}</p>
+            </a>
+        </article>
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

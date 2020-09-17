@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <nav class="fil-ariane">
+        <a href="{{ path('home') }}">TakeFood</a> >
+        <a href="{{ path('category.index') }}">Nos produits</a> > 
+        <a href="{{ path('category.view', {'slug': category.slug}) }}">Nos {{ category.name | lower }}</a> >
+        <a href="{{ path('product.view', {'categorySlug': category.slug, 'productSlug': product.slug}) }}">{{ product.name }}</a>
+    </nav>
+
+    <h1>{{ product.name }}</h1>
+    <hr>
+    
+    <article>
+        <img src="{{ asset( 'img/' ~ product.image) }}" alt="{{ product.name }}" />
+        <p>Prix : {{ product.price }}</p>
+        <p>{{ product.description }}</p>
+
+    </article>
+{% endblock %}

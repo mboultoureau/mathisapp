@@ -6,7 +6,7 @@
 
 
 <nav class="fil-ariane">
-    <a href="{{ path('home') }}">TakeFood</a> > <a href="{{ path('categorie.index') }}">Nos produits</a>
+    <a href="{{ path('home') }}">TakeFood</a> > <a href="{{ path('category.index') }}">Nos produits</a>
 </nav>
 
 <h1>Nos produits</h1>
@@ -15,15 +15,15 @@
 <section class="produits">
 
 
-    {% if categories is empty %}
+    {% if categorys is empty %}
         <p>Nous n'avons encore aucune catégorie de produits pour le moment, repassez plus tard</p>
     {% endif %}
 
-    {% for categorie in categories %}
+    {% for category in categorys %}
     <article>
-        <a href="{{ path('categorie.view', {'slug': categorie.slug}) }}">
-            <img src="{{ asset( 'img/' ~ categorie.image) }}" alt="{{ categorie.nom }}" />
-            <p>{{ categorie.nom }}</p>
+        <a href="{{ path('category.view', {'slug': category.slug}) }}">
+            <img src="{{ asset( 'img/' ~ category.image) }}" alt="{{ category.name }}" />
+            <p>{{ category.name }}</p>
         </a>
     </article>
     {% endfor %}

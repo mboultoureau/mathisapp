@@ -6,23 +6,23 @@
 
     <h1>{{ editMode ? 'Édition d\'une catégorie' : 'Création d\'une catégorie' }}</h1>
 
-    {{ form_start(formCategorie) }}
+    {{ form_start(formCategory) }}
 
         <div class="input-field">
-            {{ form_row(formCategorie.nom, {
+            {{ form_row(formCategory.nom, {
                 'attr': {'placeholder': 'Nom de la catégorie'}
             }) }}
         </div>
 
         <div class="input-field">
-            {{ form_row(formCategorie.image, {
+            {{ form_row(formCategory.image, {
                 'attr': {'placeholder': 'Nom et extension du fichier de l\'image'},
                 'label': 'Nom de l\'image'
             }) }}
         </div>
 
         <div class="input-field">
-            {{ form_row(formCategorie.slug, {
+            {{ form_row(formCategory.slug, {
                 'attr': {'placeholder': 'URL de la catégorie'},
                 'label': 'URL'
             }) }}
@@ -30,6 +30,6 @@
 
         <input type="submit" value="{{ editMode ? 'Éditer la catégorie' : 'Créer la catégorie' }}">
 
-    {{ form_end(formCategorie) }}
+    {{ form_end(formCategory) }}
 
 {% endblock %}

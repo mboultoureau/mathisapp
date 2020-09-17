@@ -4,109 +4,109 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\Categorie;
-use App\Entity\Produit;
+use App\Entity\Category;
+use App\Entity\Product;
 
-class ProduitFixtures extends Fixture
+class ProductFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $produits = array(
+        $products = array(
             array(
-                'nom' => 'Boissons',
+                'name' => 'Boissons',
                 'slug' => 'boissons',
                 'image' => 'boissons.svg',
-                'produits' => array(
+                'products' => array(
                     1 => array(
-                        'nom' => 'Eau',
+                        'name' => 'Eau',
                         'description' => 'Le goût originel de l\'eau',
-                        'prix' => 0.5,
+                        'price' => 0.5,
                         'slug' => 'eau',
                         'image' => 'eau.jpg'
                     ),
                     2 => array(
-                        'nom' => 'Coca-Cola',
+                        'name' => 'Coca-Cola',
                         'description' => 'Ouvre un Coca-Cola, ouvre du bonheur',
-                        'prix' => 1.5,
+                        'price' => 1.5,
                         'slug' => 'coca-cola',
                         'image' => 'coca-cola.jpg'
                     ),
                     3 => array(
-                        'nom' => 'Limonade',
+                        'name' => 'Limonade',
                         'description' => 'Comble votre soif',
-                        'prix' => 0.95,
+                        'price' => 0.95,
                         'slug' => 'limonade',
                         'image' => 'limonade.jpg'
                     )
                 )
             ),
             array(
-                'nom' => 'Salades',
+                'name' => 'Salades',
                 'slug' => 'salades',
                 'image' => 'salades.svg',
-                'produits' => array(
+                'products' => array(
                     1 => array(
-                        'nom' => 'Salade César',
+                        'name' => 'Salade César',
                         'description' => 'Une valeur sure',
-                        'prix' => 4.75,
+                        'price' => 4.75,
                         'slug' => 'cesar',
                         'image' => 'cesar.jpg'
                     ),
                     2 => array(
-                        'nom' => 'Salade tahitienne',
+                        'name' => 'Salade tahitienne',
                         'description' => 'Régalez-vous !',
-                        'prix' => 4.75,
+                        'price' => 4.75,
                         'slug' => 'tahitienne',
                         'image' => 'tahitienne.jpg'
                     )
                 )
             ),
             array(
-                'nom' => 'Desserts',
+                'name' => 'Desserts',
                 'slug' => 'desserts',
                 'image' => 'desserts.svg',
-                'produits' => [
+                'products' => [
                     1 => array(
-                        'nom' => 'Tiramisu',
+                        'name' => 'Tiramisu',
                         'description' => 'Le meilleur dessert possible',
-                        'prix' => 6.5,
+                        'price' => 6.5,
                         'slug' => 'tiramisu',
                         'image' => 'tiramisu.jpg'
                     )
                 ]
             ),
             array(
-                'nom' => 'Pizzas',
+                'name' => 'Pizzas',
                 'slug' => 'pizzas',
                 'image' => 'pizzas.svg',
-                'produits' => array()
+                'products' => array()
             ),
             array(
-                'nom' => 'Plats',
+                'name' => 'Plats',
                 'slug' => 'plats',
                 'image' => 'plats.svg',
-                'produits' => array()
+                'products' => array()
             )
         );
 
-        foreach($produits as $cat) {
-            $categorie = new Categorie();
-            $categorie  ->setNom($cat['nom'])
+        foreach($products as $cat) {
+            $category = new Category();
+            $category  ->setName($cat['name'])
                         ->setSlug($cat['slug'])
                         ->setImage($cat['image']);
 
-            $manager->persist($categorie);
+            $manager->persist($category);
 
-            foreach($cat['produits'] as $pro) {
-                $produit = new Produit();
-                $produit->setNom($pro['nom'])
+            foreach($cat['products'] as $pro) {
+                $product = new Product();
+                $product->setName($pro['name'])
                         ->setDescription($pro['description'])
-                        ->setPrix($pro['prix'])
+                        ->setPrice($pro['price'])
                         ->setSlug($pro['slug'])
                         ->setImage($pro['image'])
-                        ->setCategorie($categorie);
+                        ->setCategory($category);
 
-                $manager->persist($produit);
+                $manager->persist($product);
             }
         }
 

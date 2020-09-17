@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ProduitRepository;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProduitRepository::class)
+ * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
-class Produit
+class Product
 {
     /**
      * @ORM\Id
@@ -20,7 +20,7 @@ class Produit
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -30,7 +30,7 @@ class Produit
     /**
      * @ORM\Column(type="float")
      */
-    private $prix;
+    private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,10 +38,10 @@ class Produit
     private $slug;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $categorie;
+    private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -53,14 +53,14 @@ class Produit
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): self
+    public function setName(string $name): self
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -77,14 +77,14 @@ class Produit
         return $this;
     }
 
-    public function getPrix(): ?float
+    public function getPrice(): ?float
     {
-        return $this->prix;
+        return $this->price;
     }
 
-    public function setPrix(float $prix): self
+    public function setPrice(float $price): self
     {
-        $this->prix = $prix;
+        $this->price = $price;
 
         return $this;
     }
@@ -101,14 +101,14 @@ class Produit
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
+    public function getCategory(): ?Category
     {
-        return $this->categorie;
+        return $this->category;
     }
 
-    public function setCategorie(?Categorie $categorie): self
+    public function setCategory(?Category $category): self
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
 
         return $this;
     }
