@@ -9,8 +9,10 @@
     {{ form_start(formCategory) }}
 
         <div class="input-field">
-            {{ form_row(formCategory.nom, {
-                'attr': {'placeholder': 'Nom de la catégorie'}
+            {{ form_row(formCategory.name, {
+                
+                'attr': {'placeholder': 'Nom de la catégorie'},
+                'label': 'Nom',
             }) }}
         </div>
 

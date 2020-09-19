@@ -151,3 +151,15 @@ main {
     margin-top: 120px;
   }
 }
+
+input[type="submit"] {
+  display: block;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: var(--primary-background);
+  border: none;
+  border-radius: 0.5em;
+  margin: 0 auto;
+  min-width: 200px;
+  cursor: pointer;
+}
