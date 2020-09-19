@@ -10,31 +10,43 @@
     {{ form_start(form) }}
 
     <div class="input-field">
-        {{ form_row(form.username, {
-            'attr': {'placeholder': 'marie'},
-            'label': 'Nom d\'utilisateur'
-        }) }}
+        {{ form_label(form.username, "Nom d\'utilisateur") }}
+        {% if form_errors(form.username) %}
+            <div class="input-errors">
+                {{ form_errors(form.username) }}
+            </div>
+        {% endif %}
+        {{ form_widget(form.username, {'attr': {'placeholder': 'marie'}}) }}
     </div>
 
     <div class="input-field">
-        {{ form_row(form.email, {
-            'attr': {'placeholder': 'marie@email.com'},
-            'label': 'Adresse email'
-        }) }}
+        {{ form_label(form.email, "Adresse email") }}
+        {% if form_errors(form.email) %}
+            <div class="input-errors">
+                {{ form_errors(form.email) }}
+            </div>
+        {% endif %}
+        {{ form_widget(form.email, {'attr': {'placeholder': 'marie@email.com'}}) }}
     </div>
 
     <div class="input-field">
-        {{ form_row(form.password, {
-            'attr': {'placeholder': '••••••••••••'},
-            'label': 'Mot de passe'
-        }) }}
+        {{ form_label(form.password, "Mot de passe") }}
+        {% if form_errors(form.password) %}
+            <div class="input-errors">
+                {{ form_errors(form.password) }}
+            </div>
+        {% endif %}
+        {{ form_widget(form.password, {'attr': {'placeholder': '••••••••••••'}}) }}
     </div>
 
     <div class="input-field">
-        {{ form_row(form.confirmPassword, {
-            'attr': {'placeholder': '••••••••••••'},
-            'label': 'Confirmation du mot de passe'
-        }) }}
+        {{ form_label(form.confirmPassword, "Confirmation du mot de passe") }}
+        {% if form_errors(form.confirmPassword) %}
+            <div class="input-errors">
+                {{ form_errors(form.confirmPassword) }}
+            </div>
+        {% endif %}
+        {{ form_widget(form.confirmPassword, {'attr': {'placeholder': '••••••••••••'}}) }}
     </div>
 
     <input type="submit" value="S'inscrire">

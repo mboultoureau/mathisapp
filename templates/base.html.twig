@@ -3,19 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}TakeFood{% endblock %}</title>
+        {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset("css/style.css") }}">
         <link rel="stylesheet" href="{{ asset("css/takefood.css") }}">
-        {% block stylesheets %}{% endblock %}
+        {% endblock %}
     </head>
     <body>
         {% include 'parts/header.html.twig' %}
         {% include 'parts/search.html.twig' %}
         {% include 'parts/user.html.twig' %}
 
-
         <main>
             {% block body %}{% endblock %}
         </main>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset("js/script.js") }}"></script>
+        {% endblock %}
     </body>
 </html>

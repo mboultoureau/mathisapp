@@ -1,15 +1,16 @@
-{# <div class="user-profile">
+<div class="user-profile">
     {% if not app.user %}
-    <ul class="nav-user">
-        <li><a href={{ path("security.register") }}>Inscription</a></li>
-        <li><a href={{ path("security.login") }}>Connexion</a></li>
-    </ul>
+    <div class="nav-user">
+        <a href="{{ path("security.register") }}">Inscription</a>
+        <a href="{{ path("security.login") }}">Connexion</a>
+    </div>
     {% else %}
-    <ul class="nav-user">
+    <div class="nav-user">
+        <p><i class="icon-user"></i></p>
         <p>{{ app.user.username }}</a>
-        <p>{{ app.user.email }}</a>
-
-        <li><a href={{ path("security.logout") }}>Déconnexion</a></li>
-    </ul>
+        <a href="{{ path("user.profile") }}">Mon profil</a>
+        <a href="#">Mes commandes</a>
+        <a href="{{ path("security.logout") }}" class="danger">Déconnexion</a>
+    </div>
     {% endif %}
-</div> #}
+</div>

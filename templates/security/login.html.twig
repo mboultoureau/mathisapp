@@ -7,7 +7,7 @@
     <h1>Connexion</h1>
 
     {% if errors %}
-        <div>{{ errors.messageKey|trans(errors.messageData, 'security') }}</div>
+        <div class="input-errors">{{ errors.messageKey|trans(errors.messageData, 'security') }}</div>
     {% endif %}
 
     <form action="{{ path('security.login') }}" method="post">

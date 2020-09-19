@@ -9,25 +9,33 @@
     {{ form_start(formCategory) }}
 
         <div class="input-field">
-            {{ form_row(formCategory.name, {
-                
-                'attr': {'placeholder': 'Nom de la catégorie'},
-                'label': 'Nom',
-            }) }}
+            {{ form_label(formCategory.name, "Nom de la catégorie") }}
+            {% if form_errors(formCategory.name) %}
+                <div class="input-errors">
+                    {{ form_errors(formCategory.name) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formCategory.name, {'attr': {'placeholder': 'Boissons'}}) }}
         </div>
 
         <div class="input-field">
-            {{ form_row(formCategory.image, {
-                'attr': {'placeholder': 'Nom et extension du fichier de l\'image'},
-                'label': 'Nom de l\'image'
-            }) }}
+            {{ form_label(formCategory.image, "Nom et extension du fichier de l\'image") }}
+            {% if form_errors(formCategory.image) %}
+                <div class="input-error">
+                    {{ form_errors(formCategory.image) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formCategory.image, {'attr': {'placeholder': 'boissons.png'}}) }}
         </div>
-
+        
         <div class="input-field">
-            {{ form_row(formCategory.slug, {
-                'attr': {'placeholder': 'URL de la catégorie'},
-                'label': 'URL'
-            }) }}
+            {{ form_label(formCategory.slug, "URL de la catégorie") }}
+            {% if form_errors(formCategory.slug) %}
+                <div class="input-error">
+                    {{ form_errors(formCategory.slug) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formCategory.slug, {'attr': {'placeholder': 'drinks'}}) }}
         </div>
 
         <input type="submit" value="{{ editMode ? 'Éditer la catégorie' : 'Créer la catégorie' }}">
