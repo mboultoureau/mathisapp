@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "takefood";
-  src: url("../font/takefood.eot?15107143");
-  src: url("../font/takefood.eot?15107143#iefix") format("embedded-opentype"),
-    url("../font/takefood.woff2?15107143") format("woff2"),
-    url("../font/takefood.woff?15107143") format("woff"),
-    url("../font/takefood.ttf?15107143") format("truetype"),
-    url("../font/takefood.svg?15107143#takefood") format("svg");
+  font-family: 'takefood';
+  src: url('../font/takefood.eot?36056540');
+  src: url('../font/takefood.eot?36056540#iefix') format('embedded-opentype'),
+       url('../font/takefood.woff2?36056540') format('woff2'),
+       url('../font/takefood.woff?36056540') format('woff'),
+       url('../font/takefood.ttf?36056540') format('truetype'),
+       url('../font/takefood.svg?36056540#takefood') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,59 +15,52 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'takefood';
-    src: url('../font/takefood.svg?15107143#takefood') format('svg');
+    src: url('../font/takefood.svg?36056540#takefood') format('svg');
   }
 }
 */
-
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "takefood";
   font-style: normal;
   font-weight: normal;
   speak: never;
-
+ 
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: 0.2em;
+  margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
-
+ 
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-
+ 
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
-
+ 
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: 0.2em;
-
+  margin-left: .2em;
+ 
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
-
+ 
   /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+ 
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
-
-.icon-user:before {
-  content: "\e800";
-} /* '' */
-.icon-logo:before {
-  content: "\e801";
-} /* '' */
-.icon-search:before {
-  content: "\e802";
-} /* '' */
-.icon-shop:before {
-  content: "\e835";
-} /* '' */
-.icon-menu:before {
-  content: "\f0c9";
-} /* '' */
+ 
+.icon-search:before { content: '\e800'; } /* '' */
+.icon-logo:before { content: '\e801'; } /* '' */
+.icon-pencil:before { content: '\e802'; } /* '' */
+.icon-trash:before { content: '\e803'; } /* '' */
+.icon-plus:before { content: '\e804'; } /* '' */
+.icon-spin1:before { content: '\e830'; } /* '' */
+.icon-shop:before { content: '\e835'; } /* '' */
+.icon-user:before { content: '\f061'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */

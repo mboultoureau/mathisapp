@@ -82,7 +82,7 @@ class ProductFixtures extends Fixture
                 'name' => 'Pizzas',
                 'slug' => 'pizzas',
                 'image' => 'pizzas.svg',
-                'icon' => 'icon_pizza.svg',
+                'icon' => 'icon_pizzas.svg',
                 'products' => array()
             ),
             array(

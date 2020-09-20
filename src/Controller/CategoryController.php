@@ -27,6 +27,18 @@ class CategoryController extends AbstractController
     }
 
     /**
+     * @Route("/admin/categories", name="admin.category.list")
+     */
+    public function list(CategoryRepository $categoryRepository)
+    {
+        $categorys = $categoryRepository->findAll();
+
+        return $this->render('category/list.html.twig', [
+            'categorys' => $categorys
+        ]);
+    }
+
+    /**
      * @Route("/produits/{slug}", name="category.view")
      */
     public function view(Category $category, ProductRepository $productRepository)
