@@ -16,6 +16,7 @@ class ProductFixtures extends Fixture
                 'name' => 'Boissons',
                 'slug' => 'boissons',
                 'image' => 'boissons.svg',
+                'icon' => 'icon_boissons.svg',
                 'products' => array(
                     1 => array(
                         'name' => 'Eau',
@@ -44,6 +45,7 @@ class ProductFixtures extends Fixture
                 'name' => 'Salades',
                 'slug' => 'salades',
                 'image' => 'salades.svg',
+                'icon' => 'icon_salades.svg',
                 'products' => array(
                     1 => array(
                         'name' => 'Salade César',
@@ -65,6 +67,7 @@ class ProductFixtures extends Fixture
                 'name' => 'Desserts',
                 'slug' => 'desserts',
                 'image' => 'desserts.svg',
+                'icon' => 'icon_desserts.svg',
                 'products' => [
                     1 => array(
                         'name' => 'Tiramisu',
@@ -79,32 +82,35 @@ class ProductFixtures extends Fixture
                 'name' => 'Pizzas',
                 'slug' => 'pizzas',
                 'image' => 'pizzas.svg',
+                'icon' => 'icon_pizza.svg',
                 'products' => array()
             ),
             array(
                 'name' => 'Plats',
                 'slug' => 'plats',
                 'image' => 'plats.svg',
+                'icon' => 'icon_plats.svg',
                 'products' => array()
             )
         );
 
-        foreach($products as $cat) {
+        foreach ($products as $cat) {
             $category = new Category();
-            $category  ->setName($cat['name'])
-                        ->setSlug($cat['slug'])
-                        ->setImage($cat['image']);
+            $category->setName($cat['name'])
+                ->setSlug($cat['slug'])
+                ->setImage($cat['image'])
+                ->setIcon($cat['icon']);
 
             $manager->persist($category);
 
-            foreach($cat['products'] as $pro) {
+            foreach ($cat['products'] as $pro) {
                 $product = new Product();
                 $product->setName($pro['name'])
-                        ->setDescription($pro['description'])
-                        ->setPrice($pro['price'])
-                        ->setSlug($pro['slug'])
-                        ->setImage($pro['image'])
-                        ->setCategory($category);
+                    ->setDescription($pro['description'])
+                    ->setPrice($pro['price'])
+                    ->setSlug($pro['slug'])
+                    ->setImage($pro['image'])
+                    ->setCategory($category);
 
                 $manager->persist($product);
             }

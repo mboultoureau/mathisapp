@@ -150,23 +150,6 @@ body > header label,
 	background: var(--primary-background);
 }
 
-.user-profile a {
-	display: block;
-	padding: 10px 20px;
-	background: var(--primary-color);
-	color: var(--primary-background);
-	border: none;
-	border-radius: 0.5em;
-	margin: 10px;
-	cursor: pointer;
-	text-decoration: none;
-	text-align: center;
-}
-
-.user-profile a.danger {
-	background: var(--danger);
-}
-
 .user-profile p {
 	text-align: center;
 }
@@ -236,4 +219,23 @@ input[type="submit"] {
 
 .input-errors + input {
 	border: 2px solid var(--danger);
+}
+
+/* BUTTONS */
+
+.btn {
+	display: block;
+	padding: 10px 20px;
+	background: var(--primary-color);
+	color: var(--primary-background);
+	border: none;
+	border-radius: 0.5em;
+	margin: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+}
+
+.btn.danger {
+	background: var(--danger);
 }
