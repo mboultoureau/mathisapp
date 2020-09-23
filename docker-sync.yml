@@ -1,0 +1,7 @@
+version: "2"
+syncs:
+  src:
+    src: './'
+    sync_excludes: ['.git', 'docker']
+  db:
+    src: './docker/database/data'
