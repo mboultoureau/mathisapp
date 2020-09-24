@@ -13,16 +13,21 @@
 
 <section class="list">
     {% if categorys is empty %}
-        <p>Vous n'avez encore créer une catégorie.</p>
-        <a href="{{ path("category.create") }}" class="btn">Créer une catégorie</a>
+        <p>Vous n'avez encore créé de catégorie..</p>
+        <a href="{{ path("admin.category.create") }}" class="btn">Créer une catégorie</a>
     {% else %}
+    <a href="{{ path("admin.category.create") }}" class="btn">Créer une catégorie</a>
     <ul>
         {% for category in categorys %}
         <li>
-            <img src="{{ asset( 'img/' ~ category.icon) }}" alt="{{ category.name }}" />
-            <p>{{ category.name }}</p>
-            <a href="#"><i class="icon-pencil"></i></a>
-            <a href="#"><i class="icon-trash"></i></a>
+            <div>
+                <img src="{{ asset( 'img/' ~ category.icon) }}" alt="{{ category.name }}" />
+                <p>{{ category.name }}</p>
+            </div>
+            <div>
+                <a href="{{ path('admin.category.edit', {'slug': category.slug}) }}"><i class="icon-pencil"></i></a>
+                <a href="#"><i class="icon-trash"></i></a>
+            </div>
         </li>
         {% endfor %}
     </ul>

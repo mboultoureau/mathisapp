@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Liste des produits{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/admin.css") }}">
+{% endblock %}
+
+{% block body %}
+
+<h1>Liste des produits</h1>
+
+<section class="list">
+    {% if products is empty %}
+        <p>Vous n'avez encore créé de produit.</p>
+        <a href="#" class="btn">Créer un produit</a>
+    {% else %}
+    <a href="#" class="btn">Créer un produit</a>
+    <ul>
+        {% for product in products %}
+        <li>
+            <div>
+                <img src="{{ asset( 'img/' ~ product.image) }}" alt="{{ product.name }}" />
+                <p>{{ product.name }}</p>
+            </div>
+            <div>
+                <a href="#"><i class="icon-pencil"></i></a>
+                <a href="#"><i class="icon-trash"></i></a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+
+{% endblock %}

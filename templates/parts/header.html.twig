@@ -14,9 +14,11 @@
         <label for="menu-header"><i class="icon-menu"></i></label>
         <input id="menu-header" type="checkbox" />
         <nav>
-            <a href="{{ path("home") }}">Accueil</a>
-            <a href="{{ path("category.index") }}">Nos produits</a>
-            <a href="#">À propos de nous</a>
+            <a href="{{ path('home') }}">Accueil</a>
+            <a href="{{ path('category.index') }}">Nos produits</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('admin') }}">Administration</a>
+            {% endif %}
         </nav>
     </div>
     <div class="right">

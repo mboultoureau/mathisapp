@@ -54,8 +54,8 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/admin/categorie/creation", name="category.create")
-     * @Route("/admin/categorie/{slug}/edition", name="category.edit")
+     * @Route("/admin/categorie/creation", name="admin.category.create")
+     * @Route("/admin/categorie/{slug}/edition", name="admin.category.edit")
      */
     public function form(Category $category = null, Request $request, EntityManagerInterface $entityManager)
     {
@@ -71,7 +71,7 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
-            return $this->redirectToRoute('category.create');
+            return $this->redirectToRoute('admin.category.create');
         }
 
         return $this->render('category/form.html.twig', [

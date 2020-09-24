@@ -45,4 +45,15 @@ class ProductController extends AbstractController
             'category' => $category
         ]);
     }
+
+    /**
+     * @Route("/admin/produits", name="admin.product.list")
+     */
+    public function list(ProductRepository $productRepository) {
+        $products = $productRepository->findAll();
+
+        return $this->render('product/list.html.twig', [
+            'products' => $products
+        ]);
+    }
 }

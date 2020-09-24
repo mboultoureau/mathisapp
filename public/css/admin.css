@@ -9,8 +9,18 @@
 	margin-right: 20px;
 }
 
-.list li {
+.list li, .list li div {
 	display: flex;
 	align-items: center;
+}
+
+.list li {
 	border-bottom: 1px solid var(--secondary-background);
+	justify-content: space-between;
+}
+
+.list li a {
+	display: block;
+	margin: 0 5px;
+	color: var(--secondary-color);
 }
