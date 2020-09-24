@@ -24,3 +24,7 @@
 	margin: 0 5px;
 	color: var(--secondary-color);
 }
+
+.list .info {
+	margin-right: 30px;
+}

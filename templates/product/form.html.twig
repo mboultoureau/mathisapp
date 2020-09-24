@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ editMode ? 'Édition d\'un produit' : 'Création d\'un produit' }}{% endblock %}
+
+{% block body %}
+
+    <h1>{{ editMode ? 'Édition d\'un produit' : 'Création d\'un produit' }}</h1>
+
+    {{ form_start(formProduct) }}
+
+        <div class="input-field">
+            {{ form_label(formProduct.name, "Nom du produit") }}
+            {% if form_errors(formProduct.name) %}
+                <div class="input-errors">
+                    {{ form_errors(formProduct.name) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formProduct.name, {'attr': {'placeholder': 'Eau gazeuse'}}) }}
+        </div>
+
+        <div class="input-field">
+            {{ form_label(formProduct.category, "Catégorie") }}
+            {% if form_errors(formProduct.category) %}
+                <div class="input-error">
+                    {{ form_errors(formProduct.category) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formProduct.category) }}
+        </div>
+
+        <div class="input-field">
+            {{ form_label(formProduct.description, "Description") }}
+            {% if form_errors(formProduct.description) %}
+                <div class="input-errors">
+                    {{ form_errors(formProduct.description) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formProduct.description, {'attr': {'placeholder': 'Description du produit'}}) }}
+        </div>
+
+        <div class="input-field">
+            {{ form_label(formProduct.price, "Prix (en euros)") }}
+            {% if form_errors(formProduct.price) %}
+                <div class="input-errors">
+                    {{ form_errors(formProduct.price) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formProduct.price, {'attr': {'placeholder': '1.99'}}) }}
+        </div>
+
+        <div class="input-field">
+            {{ form_label(formProduct.image, "Nom et extension du fichier de l\'image") }}
+            {% if form_errors(formProduct.image) %}
+                <div class="input-error">
+                    {{ form_errors(formProduct.image) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formProduct.image, {'attr': {'placeholder': 'eau-gazeuse.png'}}) }}
+        </div>
+        
+        <div class="input-field">
+            {{ form_label(formProduct.slug, "URL du produit") }}
+            {% if form_errors(formProduct.slug) %}
+                <div class="input-error">
+                    {{ form_errors(formProduct.slug) }}
+                </div>
+            {% endif %}
+            {{ form_widget(formProduct.slug, {'attr': {'placeholder': 'eau-gazeuse'}}) }}
+        </div>
+
+        <input type="submit" value="{{ editMode ? 'Éditer le produit' : 'Créer le produit' }}">
+
+    {{ form_end(formProduct) }}
+
+{% endblock %}

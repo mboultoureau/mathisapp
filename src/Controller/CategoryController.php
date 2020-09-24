@@ -71,7 +71,7 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin.category.create');
+            return $this->redirectToRoute('admin.category.list');
         }
 
         return $this->render('category/form.html.twig', [

@@ -14,9 +14,9 @@
 <section class="list">
     {% if products is empty %}
         <p>Vous n'avez encore créé de produit.</p>
-        <a href="#" class="btn">Créer un produit</a>
+        <a href="{{ path('admin.product.create') }}" class="btn">Créer un produit</a>
     {% else %}
-    <a href="#" class="btn">Créer un produit</a>
+    <a href="{{ path('admin.product.create') }}" class="btn">Créer un produit</a>
     <ul>
         {% for product in products %}
         <li>
@@ -25,7 +25,8 @@
                 <p>{{ product.name }}</p>
             </div>
             <div>
-                <a href="#"><i class="icon-pencil"></i></a>
+                <p class="info">{{ product.category.name }}</p>
+                <a href="{{ path('admin.product.edit', {'categorySlug': product.category.slug, 'productSlug': product.slug}) }}"><i class="icon-pencil"></i></a>
                 <a href="#"><i class="icon-trash"></i></a>
             </div>
         </li>

@@ -215,7 +215,7 @@ input[type="submit"] {
 	margin: 20px 0;
 }
 
-.input-field input {
+.input-field input, .input-field textarea, .input-field select {
 	background-color: var(--secondary-background);
 	border: none;
 	border-radius: 0.5em;
@@ -231,8 +231,13 @@ input[type="submit"] {
 	padding: 10px;
 }
 
-.input-errors + input {
+.input-errors + input, .input-errors + textarea, .input-errors select {
 	border: 2px solid var(--danger);
+}
+
+.input-field textarea {
+	min-height: 7em;
+	resize: vertical;
 }
 
 /* BUTTONS */
