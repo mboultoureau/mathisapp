@@ -2,10 +2,11 @@
 
 {% block title %}Profil{% endblock %}
 
+{% block search %}{% endblock %}
+
 {% block body %}
 
     <h1>Visualisation du profil</h1>
-    <hr>
 
     {% if not app.user %}
         <p>Vous devez vous <a href="{{ path('security.connexion') }}">connecter</a> pour accéder à votre profil.</p>

@@ -22,3 +22,4 @@
 /docker/database/data/*
 !/docker/database/data/.gitkeep 
 /docker/logs/nginx/*
+.docker-sync

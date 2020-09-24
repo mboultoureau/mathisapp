@@ -21,6 +21,9 @@ symfony server:start
 
 ```sh
 docker-compose up
+
+# Pour exécuter une commande sur le serveur
+docker exec -it takefood_php-fpm_1 bin/console [VOTRE COMMANDE]
 ```
 
 ## Installation avec DockerSync
@@ -28,6 +31,14 @@ docker-compose up
 ```sh
 docker-sync-stack start
 
+# Ou si vous souhaitez l'exécuter en tâche de fond
+docker-sync start
+
 # Pour exécuter une commande sur le serveur
 docker exec -it takefood_php-fpm_1 bin/console [VOTRE COMMANDE]
 ```
+
+## Crédits
+
+- [Docker for Symfony](https://gitlab.com/martinpham/symfony-5-docker) by [Martin Pham](https://dev.to/martinpham)
+- [Icons from flaticons](https://www.flaticon.com/) by [Freepik](http://www.freepik.com/)

@@ -138,6 +138,20 @@ body > header label,
 	}
 }
 
+/* NOSCRIPT */
+noscript div {
+	z-index: 1000;
+	background: var(--danger);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	min-height: 60px;
+	text-align: center;
+	padding: 5px;
+	color: var(--primary-background);
+}
+
 /* USER PROFILE */
 .user-profile {
 	display: none;
@@ -177,7 +191,7 @@ main {
 }
 
 @media (max-width: 850px) {
-	main {
+	.search + .user-profile + main {
 		margin-top: 120px;
 	}
 }

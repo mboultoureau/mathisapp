@@ -10,7 +10,9 @@
     </head>
     <body>
         {% include 'parts/header.html.twig' %}
-        {% include 'parts/search.html.twig' %}
+        {% block search %}
+            {% include 'parts/search.html.twig' %}
+        {% endblock %}
         {% include 'parts/user.html.twig' %}
 
         <main>
