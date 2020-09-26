@@ -11,6 +11,8 @@
         <p>Nous n'avons encore aucune catégorie de produits pour le moment, repassez plus tard</p>
     {% endif %}
 
+    {% include 'category/showcase.html.twig' %}
+
     {% for category in categorys %}
     <article>
         <a href="{{ path('category.view', {'slug': category.slug}) }}">

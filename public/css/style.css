@@ -258,3 +258,30 @@ input[type="submit"] {
 .btn.danger {
 	background: var(--danger);
 }
+
+/* SHOWCASE */
+.showcase {
+	display: flex;
+}
+
+.showcase a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70px;
+	height: 70px;
+	border: 1px solid var(--secondary-background);
+	box-shadow: 2px 2px 5px var(--secondary-background);
+	border-radius: 0.5em;
+	margin: 0 10px;
+}
+
+.showcase a:first-of-type {
+	margin: 0 10px 0 0;
+}
+
+.showcase a img {
+	display: block;
+	width: 40px;
+	height: 40px;
+}
