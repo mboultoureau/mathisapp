@@ -24,6 +24,7 @@
             <a href="{{ path('product.view', {'categorySlug': category.slug, 'productSlug': product.slug }) }}">
                 <img src="{{ asset( 'img/' ~ product.image) }}" alt="{{ product.name }}" />
                 <p>{{ product.name }}</p>
+                <a href="{{ path('cart.add', {'id': product.id}) }}">Ajouter au panier</a>
             </a>
         </article>
         {% endfor %}
