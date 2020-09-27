@@ -154,6 +154,7 @@ noscript div {
 
 /* USER PROFILE */
 .user-profile {
+	z-index: 11;
 	display: none;
 	position: absolute;
 	top: 60px;
@@ -215,7 +216,9 @@ input[type="submit"] {
 	margin: 20px 0;
 }
 
-.input-field input, .input-field textarea, .input-field select {
+.input-field input,
+.input-field textarea,
+.input-field select {
 	background-color: var(--secondary-background);
 	border: none;
 	border-radius: 0.5em;
@@ -231,7 +234,9 @@ input[type="submit"] {
 	padding: 10px;
 }
 
-.input-errors + input, .input-errors + textarea, .input-errors select {
+.input-errors + input,
+.input-errors + textarea,
+.input-errors select {
 	border: 2px solid var(--danger);
 }
 
@@ -262,16 +267,23 @@ input[type="submit"] {
 /* SHOWCASE */
 .showcase {
 	display: flex;
+	justify-content: space-between;
+}
+
+.showcase .content {
+	display: flex;
+	overflow-x: auto;
+	position: relative;
+	flex: 1;
 }
 
 .showcase a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 70px;
+	min-width: 70px;
 	height: 70px;
-	border: 1px solid var(--secondary-background);
-	box-shadow: 2px 2px 5px var(--secondary-background);
+	background: var(--secondary-background);
 	border-radius: 0.5em;
 	margin: 0 10px;
 }
@@ -284,4 +296,29 @@ input[type="submit"] {
 	display: block;
 	width: 40px;
 	height: 40px;
+}
+
+.showcase a[href="#previous"],
+.showcase a[href="#next"] {
+	border: 1px solid var(--secondary-color);
+	color: #000;
+	border-radius: 50%;
+	background: var(--primary-background);
+	text-align: center;
+	padding-right: 3px;
+	margin-top: 20px;
+	min-width: 30px;
+	height: 30px;
+}
+
+.showcase a[href="#next"] {
+	padding-right: 0;
+	padding-left: 3px;
+	margin-right: 0;
+}
+
+.showcase .content::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	background: transparent;
 }

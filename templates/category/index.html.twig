@@ -13,6 +13,7 @@
 
     {% include 'category/showcase.html.twig' %}
 
+{#
     {% for category in categorys %}
     <article>
         <a href="{{ path('category.view', {'slug': category.slug}) }}">
@@ -21,6 +22,7 @@
         </a>
     </article>
     {% endfor %}
+#}
 </section>
 
 {% endblock %}

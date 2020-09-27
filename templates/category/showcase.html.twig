@@ -1,7 +1,11 @@
 <section class="showcase">
-    {% for category in categorys %}
-    <a href="{{ path('category.view', {'slug': category.slug}) }}">
-        <img src="{{ asset( 'img/' ~ category.icon) }}" alt="{{ category.name }}" />
-    </a>
-    {% endfor %}
+    <a href="#previous"><i class="icon-left-open"></i></a>
+    <div class="content">
+        {% for category in categorys %}
+        <a href="{{ path('category.view', {'slug': category.slug}) }}">
+            <img src="{{ asset( 'img/' ~ category.icon) }}" alt="{{ category.name }}" />
+        </a>
+        {% endfor %}
+    </div>
+    <a href="#next"><i class="icon-right-open"></i></a>
 </section>

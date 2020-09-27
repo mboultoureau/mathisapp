@@ -27,7 +27,7 @@
             <div>
                 <p class="info">{{ product.category.name }}</p>
                 <a href="{{ path('admin.product.edit', {'categorySlug': product.category.slug, 'productSlug': product.slug}) }}"><i class="icon-pencil"></i></a>
-                <a href="#"><i class="icon-trash"></i></a>
+                <a href="{{ path('admin.product.delete', {'categorySlug': product.category.slug, 'productSlug': product.slug}) }}"><i class="icon-trash"></i></a>
             </div>
         </li>
         {% endfor %}
