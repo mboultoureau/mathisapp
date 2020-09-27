@@ -26,7 +26,7 @@
             </div>
             <div>
                 <a href="{{ path('admin.category.edit', {'slug': category.slug}) }}"><i class="icon-pencil"></i></a>
-                <a href="#"><i class="icon-trash"></i></a>
+                <a href="{{ path('admin.category.delete', {'slug': category.slug}) }}"><i class="icon-trash"></i></a>
             </div>
         </li>
         {% endfor %}

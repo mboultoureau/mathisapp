@@ -10,16 +10,27 @@ use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
-
+use Exception;
 
 class CategoryController extends AbstractController
 {
+    private CategoryRepository $categoryRepository;
+    private ProductRepository $productRepository;
+    private EntityManagerInterface $em;
+
+    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository, EntityManagerInterface $em)
+    {
+        $this->categoryRepository = $categoryRepository;
+        $this->productRepository = $productRepository;
+        $this->em = $em;
+    }
+
     /**
      * @Route("/produits", name="category.index")
      */
-    public function index(CategoryRepository $categoryRepository)
+    public function index()
     {
-        $categorys = $categoryRepository->findAll();
+        $categorys = $this->categoryRepository->findAll();
 
         return $this->render('category/index.html.twig', [
             'categorys' => $categorys
@@ -29,9 +40,9 @@ class CategoryController extends AbstractController
     /**
      * @Route("/admin/categories", name="admin.category.list")
      */
-    public function list(CategoryRepository $categoryRepository)
+    public function list()
     {
-        $categorys = $categoryRepository->findAll();
+        $categorys = $this->categoryRepository->findAll();
 
         return $this->render('category/list.html.twig', [
             'categorys' => $categorys
@@ -41,9 +52,9 @@ class CategoryController extends AbstractController
     /**
      * @Route("/produits/{slug}", name="category.view")
      */
-    public function view(Category $category, ProductRepository $productRepository)
+    public function view(Category $category)
     {
-        $products = $productRepository->findBy([
+        $products = $this->productRepository->findBy([
             'category' => $category
         ]);
 
@@ -57,7 +68,7 @@ class CategoryController extends AbstractController
      * @Route("/admin/categorie/creation", name="admin.category.create")
      * @Route("/admin/categorie/{slug}/edition", name="admin.category.edit")
      */
-    public function form(Category $category = null, Request $request, EntityManagerInterface $entityManager)
+    public function form(Category $category = null, Request $request)
     {
         if (!$category) {
             $category = new Category();
@@ -68,8 +79,8 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($category);
-            $entityManager->flush();
+            $this->em->persist($category);
+            $this->em->flush();
 
             return $this->redirectToRoute('admin.category.list');
         }
@@ -78,5 +89,24 @@ class CategoryController extends AbstractController
             'formCategory' => $form->createView(),
             'editMode' => $category->getId() !== null
         ]);
+    }
+
+    /**
+     * @Route("/admin/categorie/{slug}/suppression", name="admin.category.delete")
+     */
+    public function delete(Category $category)
+    {
+        $products = $this->productRepository->findBy([
+            'category' => $category
+        ]);
+
+        if (empty($products)) {
+            $this->em->remove($category);
+            $this->em->flush();
+
+            return $this->redirectToRoute('admin.category.list');
+        } else {
+            throw new Exception("Cette catégorie contient toujours des produits");
+        }
     }
 }
