@@ -24,13 +24,20 @@ class CartController extends AbstractController
             ];
         }
 
+        $total = 0;
+        foreach($cartWithData as $item) {
+            $totalItem = $item['quantity'] * $item['product']->getPrice();
+            $total += $totalItem;
+        }
+
         return $this->render('cart/index.html.twig', [
-            'cart' => $cartWithData
+            'cart' => $cartWithData,
+            'total' => $total
         ]);
     }
 
     /**
-     * @Route("/panier/ajouter/{id}", name="cart.add")
+     * @Route("/panier/ajout/{id}", name="cart.add")
      */
     public function add($id, SessionInterface $session)
     {
@@ -43,6 +50,21 @@ class CartController extends AbstractController
 
         $session->set('cart', $cart);
 
-        dd($session->get('cart'));
+        return $this->redirectToRoute('cart.view');
+    }
+
+    /**
+     * @Route("/panier/suppression/{id}", name="cart.remove")
+     */
+    public function remove($id, SessionInterface $session)
+    {
+        $cart = $session->get('cart', []);
+        if (!empty($cart[$id])) {
+            unset($cart[$id]);
+        }
+
+        $session->set('cart', $cart);
+
+        return $this->redirectToRoute('cart.view');
     }
 }

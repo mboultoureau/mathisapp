@@ -322,3 +322,60 @@ input[type="submit"] {
 	height: 0;
 	background: transparent;
 }
+
+/* CART */
+.cart img {
+	display: block;
+	width: 50px;
+	height: 50px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: var(--secondary-color);
+	color: var(--primary-background);
+}
+
+thead tr, tfoot tr {
+	height: 3em;
+}
+
+tr:nth-child(even) {
+	background-color: var(--secondary-background);
+}
+
+.cart table {
+	text-align: left;
+}
+
+.cart tbody tr td:nth-child(1) {
+	width: 70px;
+}
+
+.cart tbody td:nth-child(3), .cart td:nth-child(4), .cart td:nth-child(5),
+.cart thead th:nth-child(3), .cart th:nth-child(4), .cart th:nth-child(5) {
+	width: 100px;
+	text-align: right;
+}
+
+.cart td:nth-child(6), .cart th:nth-child(6) {
+	width: 70px;
+	text-align: center;
+}
+.cart td:nth-child(6) a {
+	color: var(--danger);
+	font-size: 1.3em;
+}
+
+
+.cart thead th:nth-child(1) {
+	padding-left: 10px;
+}
+
+.cart tfoot td {
+	text-align: right;
+}

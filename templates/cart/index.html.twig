@@ -7,7 +7,37 @@
 
 <section class="cart">
     {% if cart | length > 0 %}
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                <tr>
+                    <td><img src="{{ asset( 'img/' ~ item.product.image) }}" alt="{{ item.product.name }}" /></td>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.quantity * item.product.price }}</td>
+                    <td><a href="{{ path('cart.remove', {'id': item.product.id}) }}"><i class="icon-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Total : </td>
+                    <td>{{ total }}</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
     {% else %}
         <p>Votre panier est vide.</p>
     {% endif %}
