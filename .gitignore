@@ -23,3 +23,6 @@
 !/docker/database/data/.gitkeep 
 /docker/logs/nginx/*
 .docker-sync
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

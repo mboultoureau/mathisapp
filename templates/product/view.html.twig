@@ -14,7 +14,7 @@
     <hr>
     
     <article>
-        <img src="{{ asset( 'img/' ~ product.image) }}" alt="{{ product.name }}" />
+        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('thumb') }}" alt="{{ product.name }}" />
         <p>Prix : {{ product.price }}</p>
         <p>{{ product.description }}</p>
 

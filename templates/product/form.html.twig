@@ -49,13 +49,13 @@
         </div>
 
         <div class="input-field">
-            {{ form_label(formProduct.image, "Nom et extension du fichier de l\'image") }}
-            {% if form_errors(formProduct.image) %}
+            {{ form_label(formProduct.imageFile, "Image du produit") }}
+            {% if form_errors(formProduct.imageFile) %}
                 <div class="input-error">
-                    {{ form_errors(formProduct.image) }}
+                    {{ form_errors(formProduct.imageFile) }}
                 </div>
             {% endif %}
-            {{ form_widget(formProduct.image, {'attr': {'placeholder': 'eau-gazeuse.png'}}) }}
+            {{ form_widget(formProduct.imageFile) }}
         </div>
         
         <div class="input-field">

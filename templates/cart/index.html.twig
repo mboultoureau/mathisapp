@@ -21,7 +21,7 @@
             <tbody>
                 {% for item in cart %}
                 <tr>
-                    <td><img src="{{ asset( 'img/' ~ item.product.image) }}" alt="{{ item.product.name }}" /></td>
+                    <td><img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ item.product.name }}" /></td>
                     <td>{{ item.product.name }}</td>
                     <td>{{ item.product.price }}</td>
                     <td>{{ item.quantity }}</td>

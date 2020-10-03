@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Category;
 use App\Entity\Product;
+use DateTime;
 
 class ProductFixtures extends Fixture
 {
@@ -23,21 +24,21 @@ class ProductFixtures extends Fixture
                         'description' => 'Le goût originel de l\'eau',
                         'price' => 0.5,
                         'slug' => 'eau',
-                        'image' => 'eau.jpg'
+                        'filename' => 'eau.jpg'
                     ),
                     2 => array(
                         'name' => 'Coca-Cola',
                         'description' => 'Ouvre un Coca-Cola, ouvre du bonheur',
                         'price' => 1.5,
                         'slug' => 'coca-cola',
-                        'image' => 'coca-cola.jpg'
+                        'filename' => 'coca-cola.jpg'
                     ),
                     3 => array(
                         'name' => 'Limonade',
                         'description' => 'Comble votre soif',
                         'price' => 0.95,
                         'slug' => 'limonade',
-                        'image' => 'limonade.jpg'
+                        'filename' => 'limonade.jpg'
                     )
                 )
             ),
@@ -52,14 +53,14 @@ class ProductFixtures extends Fixture
                         'description' => 'Une valeur sure',
                         'price' => 4.75,
                         'slug' => 'cesar',
-                        'image' => 'cesar.jpg'
+                        'filename' => 'cesar.jpg'
                     ),
                     2 => array(
                         'name' => 'Salade tahitienne',
                         'description' => 'Régalez-vous !',
                         'price' => 4.75,
                         'slug' => 'tahitienne',
-                        'image' => 'tahitienne.jpg'
+                        'filename' => 'tahitienne.jpg'
                     )
                 )
             ),
@@ -74,7 +75,7 @@ class ProductFixtures extends Fixture
                         'description' => 'Le meilleur dessert possible',
                         'price' => 6.5,
                         'slug' => 'tiramisu',
-                        'image' => 'tiramisu.jpg'
+                        'filename' => 'tiramisu.jpg'
                     )
                 ]
             ),
@@ -109,7 +110,8 @@ class ProductFixtures extends Fixture
                     ->setDescription($pro['description'])
                     ->setPrice($pro['price'])
                     ->setSlug($pro['slug'])
-                    ->setImage($pro['image'])
+                    ->setFilename($pro['filename'])
+                    ->setUpdatedAt(new DateTime('now'))
                     ->setCategory($category);
 
                 $manager->persist($product);

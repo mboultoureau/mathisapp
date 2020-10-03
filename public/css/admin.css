@@ -4,12 +4,13 @@
 
 .list img {
 	display: block;
-	width: 20px;
-	height: 20px;
+	width: 50px;
+	height: 50px;
 	margin-right: 20px;
 }
 
-.list li, .list li div {
+.list li,
+.list li div {
 	display: flex;
 	align-items: center;
 }
