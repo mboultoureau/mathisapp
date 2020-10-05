@@ -30,10 +30,10 @@ class CategoryController extends AbstractController
      */
     public function index()
     {
-        $categorys = $this->categoryRepository->findAll();
+        $categories = $this->categoryRepository->findAll();
 
         return $this->render('category/index.html.twig', [
-            'categorys' => $categorys
+            'categories' => $categories
         ]);
     }
 
@@ -42,10 +42,10 @@ class CategoryController extends AbstractController
      */
     public function list()
     {
-        $categorys = $this->categoryRepository->findAll();
+        $categories = $this->categoryRepository->findAll();
 
         return $this->render('category/list.html.twig', [
-            'categorys' => $categorys
+            'categories' => $categories
         ]);
     }
 

@@ -1,11 +1,11 @@
-# TakeFood
+<h1 align="center">🍔 TakeFood</h1>
 
-TakeFood est une application factice simulant la commande de plats à emporter.
+> TakeFood est une application factice simulant la commande de plats à emporter.
 
 ## Installation
 
--   Configurer la connexion à la base de données dans le fichier `.env`.
--   Écrire les commandes suivantes dans le terminal :
+- Configurer la connexion à la base de données dans le fichier `.env`.
+- Écrire les commandes suivantes dans le terminal :
 
 ```sh
 composer install

@@ -1,7 +1,8 @@
+{% if categories is not empty %}
 <section class="showcase">
     <a href="#previous"><i class="icon-left-open"></i></a>
     <div class="content">
-        {% for category in categorys %}
+        {% for category in categories %}
         <a href="{{ path('category.view', {'slug': category.slug}) }}">
             <img src="{{ asset( 'img/' ~ category.icon) }}" alt="{{ category.name }}" />
         </a>
@@ -9,3 +10,4 @@
     </div>
     <a href="#next"><i class="icon-right-open"></i></a>
 </section>
+{% endif %}
