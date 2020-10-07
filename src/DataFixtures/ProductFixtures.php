@@ -16,7 +16,7 @@ class ProductFixtures extends Fixture
             array(
                 'name' => 'Boissons',
                 'slug' => 'boissons',
-                'image' => 'boissons.svg',
+                'image' => 'boissons.png',
                 'products' => array(
                     1 => array(
                         'name' => 'Eau',
@@ -44,7 +44,7 @@ class ProductFixtures extends Fixture
             array(
                 'name' => 'Salades',
                 'slug' => 'salades',
-                'image' => 'salades.svg',
+                'image' => 'salades.png',
                 'products' => array(
                     1 => array(
                         'name' => 'Salade César',
@@ -65,7 +65,7 @@ class ProductFixtures extends Fixture
             array(
                 'name' => 'Desserts',
                 'slug' => 'desserts',
-                'image' => 'desserts.svg',
+                'image' => 'desserts.png',
                 'products' => [
                     1 => array(
                         'name' => 'Tiramisu',
@@ -79,13 +79,13 @@ class ProductFixtures extends Fixture
             array(
                 'name' => 'Pizzas',
                 'slug' => 'pizzas',
-                'image' => 'pizzas.svg',
+                'image' => 'pizzas.png',
                 'products' => array()
             ),
             array(
                 'name' => 'Plats',
                 'slug' => 'plats',
-                'image' => 'plats.svg',
+                'image' => 'plats.png',
                 'products' => array()
             )
         );
@@ -94,8 +94,8 @@ class ProductFixtures extends Fixture
             $category = new Category();
             $category->setName($cat['name'])
                 ->setSlug($cat['slug'])
-                ->setImage($cat['image'])
-                ->setIcon($cat['icon']);
+                ->setUpdatedAt(new DateTime('now'))
+                ->setFilename($cat['image']);
 
             $manager->persist($category);
 

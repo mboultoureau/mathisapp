@@ -19,13 +19,13 @@
         </div>
 
         <div class="input-field">
-            {{ form_label(formCategory.image, "Nom et extension du fichier de l\'image") }}
-            {% if form_errors(formCategory.image) %}
+            {{ form_label(formCategory.imageFile, "Image de la catégorie") }}
+            {% if form_errors(formCategory.imageFile) %}
                 <div class="input-error">
-                    {{ form_errors(formCategory.image) }}
+                    {{ form_errors(formCategory.imageFile) }}
                 </div>
             {% endif %}
-            {{ form_widget(formCategory.image, {'attr': {'placeholder': 'boissons.png'}}) }}
+            {{ form_widget(formCategory.imageFile) }}
         </div>
         
         <div class="input-field">

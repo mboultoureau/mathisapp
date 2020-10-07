@@ -70,6 +70,10 @@ body > header nav a {
 	background-size: 20px;
 }
 
+body > header .left div:first-of-type {
+	margin-left: 20px;
+}
+
 body > header .right div a {
 	display: inline-block;
 	margin: 0 5px;

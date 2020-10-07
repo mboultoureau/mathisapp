@@ -22,7 +22,7 @@
 				{% for category in categories %}
 					<li>
 						<div>
-							<img src="{{ asset( 'img/' ~ category.icon) }}" alt="{{ category.name }}"/>
+							<img src="{{ vich_uploader_asset(category, 'imageFile') | imagine_filter('icon') }}" alt="{{ category.name }}"/>
 							<p>{{ category.name }}</p>
 						</div>
 						<div>
@@ -30,7 +30,7 @@
 								<i class="fas fa-edit"></i>
 							</a>
 							<a href="{{ path('admin.category.delete', {'slug': category.slug}) }}">
-								<i class="fas fa-edit"></i>
+								<i class="fas fa-trash"></i>
 							</a>
 						</div>
 					</li>
