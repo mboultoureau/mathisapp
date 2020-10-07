@@ -11,18 +11,21 @@ use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Exception;
+use Symfony\Contracts\Cache\CacheInterface;
 
 class CategoryController extends AbstractController
 {
     private CategoryRepository $categoryRepository;
     private ProductRepository $productRepository;
     private EntityManagerInterface $em;
+    private CacheInterface $cache;
 
-    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository, EntityManagerInterface $em)
+    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository, EntityManagerInterface $em, CacheInterface $cache)
     {
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
         $this->em = $em;
+        $this->cache = $cache;
     }
 
     /**
@@ -30,7 +33,9 @@ class CategoryController extends AbstractController
      */
     public function index()
     {
-        $categories = $this->categoryRepository->findAll();
+        $categories = $this->cache->get('categories', function() {
+            return $this->categoryRepository->findAll();
+        });
 
         return $this->render('category/index.html.twig', [
             'categories' => $categories
@@ -42,7 +47,9 @@ class CategoryController extends AbstractController
      */
     public function list()
     {
-        $categories = $this->categoryRepository->findAll();
+        $categories = $this->cache->get('categories', function () {
+            return $this->categoryRepository->findAll();
+        });
 
         return $this->render('category/list.html.twig', [
             'categories' => $categories
@@ -82,6 +89,8 @@ class CategoryController extends AbstractController
             $this->em->persist($category);
             $this->em->flush();
 
+            $this->cache->delete('categories');
+
             return $this->redirectToRoute('admin.category.list');
         }
 
@@ -103,6 +112,8 @@ class CategoryController extends AbstractController
         if (empty($products)) {
             $this->em->remove($category);
             $this->em->flush();
+
+            $this->cache->delete('categories');
 
             return $this->redirectToRoute('admin.category.list');
         } else {
