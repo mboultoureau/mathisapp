@@ -43,11 +43,6 @@ class Category
      */
     private $products;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $icon;
-
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -121,18 +116,6 @@ class Category
                 $product->setCategory(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): self
-    {
-        $this->icon = $icon;
 
         return $this;
     }

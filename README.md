@@ -9,6 +9,9 @@
 
 ```sh
 composer install
+
+# Création de la base de données
+php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 
 # Pour initialiser des données de tests

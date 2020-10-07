@@ -17,7 +17,6 @@ class ProductFixtures extends Fixture
                 'name' => 'Boissons',
                 'slug' => 'boissons',
                 'image' => 'boissons.svg',
-                'icon' => 'icon_boissons.svg',
                 'products' => array(
                     1 => array(
                         'name' => 'Eau',
@@ -46,7 +45,6 @@ class ProductFixtures extends Fixture
                 'name' => 'Salades',
                 'slug' => 'salades',
                 'image' => 'salades.svg',
-                'icon' => 'icon_salades.svg',
                 'products' => array(
                     1 => array(
                         'name' => 'Salade César',
@@ -68,7 +66,6 @@ class ProductFixtures extends Fixture
                 'name' => 'Desserts',
                 'slug' => 'desserts',
                 'image' => 'desserts.svg',
-                'icon' => 'icon_desserts.svg',
                 'products' => [
                     1 => array(
                         'name' => 'Tiramisu',
@@ -83,14 +80,12 @@ class ProductFixtures extends Fixture
                 'name' => 'Pizzas',
                 'slug' => 'pizzas',
                 'image' => 'pizzas.svg',
-                'icon' => 'icon_pizzas.svg',
                 'products' => array()
             ),
             array(
                 'name' => 'Plats',
                 'slug' => 'plats',
                 'image' => 'plats.svg',
-                'icon' => 'icon_plats.svg',
                 'products' => array()
             )
         );
